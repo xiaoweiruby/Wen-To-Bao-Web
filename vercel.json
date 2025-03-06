@@ -1,12 +1,10 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/pricing", "dest": "/index.html" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/imgic/(.*)", "dest": "/imgic/$1" },
     { "src": "/download", "dest": "/download.html" },
-    { "src": "/.*", "dest": "/index.html" }
+    { "src": "/(.*)", "dest": "/index.html" }
   ],
   "headers": [
     {
