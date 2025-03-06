@@ -1,10 +1,9 @@
 {
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "/imgic/(.*)", "dest": "/imgic/$1" },
-    { "src": "/download", "dest": "/download.html" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/assets/:path*", "destination": "/assets/:path*" },
+    { "source": "/imgic/:path*", "destination": "/imgic/:path*" },
+    { "source": "/download", "destination": "/download.html" },
+    { "source": "/:path*", "destination": "/index.html" }
   ],
   "headers": [
     {
