@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>文图宝-您的炫丽文字转爆款图片助手</title>
+  <title>文图宝-文字变图片，创意无限</title>
   <link rel="stylesheet" href="/src/style.css">
   <link rel="stylesheet" href="/src/sponsors.css">
+  <link rel="stylesheet" href="/src/modal.css">
+  <link rel="stylesheet" href="/src/download.css">
   <link rel="icon" type="image/png" href="/imgic/文图宝-icon.png">
   <link rel="apple-touch-icon" href="/imgic/文图宝-icon.png">
 </head>
@@ -13,14 +15,14 @@
   <header class="header">
     <div class="container">
       <nav class="navbar">
-        <div class="logo">
-          <img src="/imgic/文图宝-icon.png" alt="文图宝" class="logo-icon">
-          文图宝
+        <div class="logo-section">
+          <img src="/imgic/文图宝-icon.png" alt="文图宝" class="logo-image">
+          <span class="logo-text">文图宝</span>
         </div>
         <ul class="nav-menu">
           <li><a href="/">首页</a></li>
-          <li><a href="/download">下载</a></li>
-          <li><a href="/pricing?tab=vip">友情赞助</a></li>
+          <li><a href="#download-section">下载</a></li>
+          <li><a href="#" class="sponsor-btn">友情赞助</a></li>
           <li><a href="#sponsors">赞助商</a></li>
           <li><a href="#about">关于我们</a></li>
         </ul>
@@ -31,10 +33,10 @@
     <div class="container">
       <div class="hero-section">
         <h1>文图宝</h1>
-        <h1>您的炫丽文字转爆款图片助手</h1>
-        <p>智能生成，高效创作，助你成为网络达人</p>
+        <h1>文字变图片，创意无限</h1>
+        <p>将文字转化为精美图片，自动排版，海量模板任你选，让你的创意脱颖而出。</p>
         <div class="cta-buttons">
-          <a href="/download.html" class="btn primary">立即下载</a>
+          <a href="#download-section" class="btn primary" id="download-btn">立即下载</a>
           <a href="/pricing?tab=vip" class="btn secondary">友情赞助</a>
         </div>
       </div>
@@ -51,7 +53,7 @@
           <div class="feature-card">
             <div class="feature-icon">🎨</div>
             <h3>海量内容模板</h3>
-            <p>1000+精心设计的模板库，涵盖美妆、穿搭、美食等热门领域</p>
+            <p>1000+精美设计的模板库，涵盖美妆、穿搭、美食等热门领域</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">⚡</div>
@@ -61,9 +63,45 @@
         </div>
       </section>
 
-      <!-- 用户评价 -->
+      <!-- 下载部分 -->
+      <section id="download-section" class="download-section">
+        <h2>选择您的下载方式</h2>
+        <p>多平台支持，随时随地创作精彩内容</p>
+        
+        <div class="download-grid">
+          <div class="download-card">
+            <div class="download-icon">🌐</div>
+            <h3>Chrome 插件版</h3>
+            <p>一键安装浏览器插件，随时创作</p>
+            <a href="https://github.com/xiaoweiruby/Wen-Tu-Bao-V1.6" class="download-btn">获取插件</a>
+          </div>
+
+          <div class="download-card">
+            <div class="download-icon">💻</div>
+            <h3>桌面客户端</h3>
+            <p>强大的本地功能，支持批量处理</p>
+            <a href="https://github.com/xiaoweiruby/Wen-Tu-Bao-Desktop/releases/latest" class="download-btn">下载应用</a>
+          </div>
+
+          <div class="download-card">
+            <div class="download-icon">📱</div>
+            <h3>微信小程序</h3>
+            <p>扫码即用，方便快捷</p>
+            <a href="https://mp.weixin.qq.com/s/your-miniprogram-page" class="download-btn" id="miniprogram-btn">获取小程序</a>
+          </div>
+
+          <div class="download-card">
+            <div class="download-icon">🍎</div>
+            <h3>iOS 版本</h3>
+            <p>iOS设备专属，随时随地创作</p>
+            <a href="https://apps.apple.com/cn/app/wen-tu-bao/id123456789" class="download-btn">App Store</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 作者评价 -->
       <section class="testimonials">
-        <h2>用户评价</h2>
+        <h2>作者评价</h2>
         <div class="testimonial-grid">
           <div class="testimonial-card">
             <div class="user-info">
@@ -144,6 +182,31 @@
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
   <script src="/src/sponsor.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sponsorBtns = document.querySelectorAll('.sponsor-btn');
+      const sponsorModal = document.querySelector('.modal-mask');
+      const sponsorCloseBtn = sponsorModal.querySelector('.close-btn');
+
+      // 友情赞助按钮相关事件
+      sponsorBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          sponsorModal.style.display = 'flex';
+        });
+      });
+
+      sponsorCloseBtn.addEventListener('click', function() {
+        sponsorModal.style.display = 'none';
+      });
+
+      sponsorModal.addEventListener('click', function(e) {
+        if (e.target === sponsorModal) {
+          sponsorModal.style.display = 'none';
+        }
+      });
+    });
+  </script>
 
   <!-- 赞助弹窗 -->
   <div class="modal-mask">
@@ -197,10 +260,9 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>Copyright &copy; 2024 文图宝 版权所有</p>
+        <p>Copyright &copy; 2025 文图宝 版权所有</p>
       </div>
-    </div>
-  </footer>
+    </div>  </footer>
 
 </body>
 </html>

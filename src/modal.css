@@ -1,0 +1,76 @@
+/* 下载弹窗样式 */
+.download-modal {
+  display: none;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.download-modal.active {
+  display: flex;
+}
+
+.download-modal-content {
+  border-radius: 20px;
+  padding: 3rem;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: modalFadeIn 0.4s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-download-section {
+  padding: 2rem !important;
+}
+
+.modal-download-section h1 {
+  color: white;
+}
+
+.modal-download-section p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.modal-download-section .download-grid {
+  margin-top: 2rem;
+}
+
+.modal-download-section .download-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.modal-download-section .download-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .download-modal-content {
+    padding: 2rem;
+  }
+  
+  .modal-download-section .download-grid {
+    margin-top: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .modal-download-section .download-card {
+    padding: 2rem;
+  }
+}
